@@ -1,22 +1,77 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba de Dominio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 20%;
-        }
-        h1 {
-            color: #28a745;
-        }
-    </style>
+    <title>Coming Soon | RoadTechTPMS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/icon 1.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>✅ ¡El dominio funciona correctamente!</h1>
-    <p>Si puedes ver este mensaje, tu dominio está activo y apunta correctamente al servidor.</p>
+    <section class="coming-soon-section">
+        <div class="left-side">
+            <img src="img/vectorizer.png" alt="RoadTechTPMS Logo" class="logo">
+            <div class="content">
+                <div class="coming-soon-text">Coming Soon</div>
+                <div class="description">We're working hard to bring you the best experience. Stay tuned!</div>
+                <p class="sign-up-text">Sign up for news and updates!</p>
+                <a href="#" class="cta-button" id="openModalBtn">Notify Me</a>
+            </div>
+        </div>
+        <div class="right-side">
+            <video autoplay loop muted class="background-video">
+                <source src="img/Gen-3 Alpha Turbo 2194707408, A high-speed close-u, Getting-Your-Car-Rea, M 5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h2>SIGN UP FOR UPDATES</h2>
+            <form id="signupForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const openModalBtn = document.getElementById('openModalBtn');
+        const modal = document.getElementById('modal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const signupForm = document.getElementById('signupForm');
+
+        openModalBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            modal.style.display = 'block';
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you can send the form data to your server
+            alert('Form submitted');
+            modal.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
